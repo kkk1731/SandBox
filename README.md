@@ -10,11 +10,11 @@ CentOS Linux release 8.3.2011
 確認していないが子プロセス以下も大丈夫そう。
 
 '''
-[-@localhost ~]$ ./return_constant
-return 1
-[-@localhost ~]$ ./sandbox ./return_constant
-return -1
-[-@localhost ~]$ ./fork_and_neogetpid
+        [-@localhost ~]$ ./return_constant
+        return 1
+        [-@localhost ~]$ ./sandbox ./return_constant
+        return -1
+        [-@localhost ~]$ ./fork_and_neogetpid
 '''
 
 '''
