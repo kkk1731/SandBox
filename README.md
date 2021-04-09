@@ -60,8 +60,9 @@ __visible noinstr void do_syscall_64(unsigned long nr, struct pt_regs *regs)
 
 ### 子プロセスへの対応
 kernel/exit.c と kernel/fork.cに変更を加えることで対応した。
--exitするときに、pidが下で示す構造体のpidメンバに含まれていればそれを消去
--forkするときに、pidが下に示す構造体のpidメンバに含まれていれば、次に生成するpidを追加
+
+- exitするときに、pidが下で示す構造体のpidメンバに含まれていればそれを消去
+- forkするときに、pidが下に示す構造体のpidメンバに含まれていれば、次に生成するpidを追加
 した。
 
 なお簡易プロセス制御ブロックは次のように定義した。
