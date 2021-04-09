@@ -58,6 +58,9 @@ __visible noinstr void do_syscall_64(unsigned long nr, struct pt_regs *regs)
 (以下略)
 ```
 
+用いる関数等（is_in_proc等）はinclude/linux/sandbox.hに記し、common.cで<linux/sandbox.h>をインクルードして利用している。
+実際の内容はarch/x86/kernel/sandbox_test.c内に記した。
+
 ### 子プロセスへの対応
 kernel/exit.c と kernel/fork.cに変更を加えることで対応した。
 
@@ -78,3 +81,9 @@ struct simple_proc_struct{
 ヘッダファイル include/linux/sandbx.h で簡易プロセス制御ブロックのrootノードになるもの(以下headと呼ぶ)を定義し、複数のプログラムでそれを共有した。
 
 カーネル空間では、構造体が共有される？ため、一方のプログラムでheadに新たな要素を追加し、他方のプログラムからそれを参照できる。
+
+# 問題点
+- どのファイルまでアクセスを許可するか指定する機能は未実装
+- 名前空間の異なるプロセスへの対応
+- 
+
