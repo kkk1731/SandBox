@@ -41,7 +41,7 @@ systemcallが呼び出されると arch/x86/entry/common.c にてsystemcallが�
 
 regs->axはもともと-1となっている（entry_64.S内で確認)ので、許されないシステムコールの場合はスルーする。
 
-```
+```c
 (省略)
 #ifdef CONFIG_X86_64
 __visible noinstr void do_syscall_64(unsigned long nr, struct pt_regs *regs)
@@ -52,7 +52,7 @@ __visible noinstr void do_syscall_64(unsigned long nr, struct pt_regs *regs)
         if (likely(nr < NR_syscalls)) {
                 nr = array_index_nospec(nr, NR_syscalls);
 
-                ** if(!is_in_proc(task_tgid_vnr(current)) ||  !is_in_syscall(nr)){ **
+                if(!is_in_proc(task_tgid_vnr(current)) ||  !is_in_syscall(nr)){
                         regs->ax = sys_call_table[nr](regs);
                 }
 #ifdef CONFIG_X86_X32_ABI
