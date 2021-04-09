@@ -9,14 +9,12 @@ CentOS Linux release 8.3.2011
 なおpidを返すもの(下)については、もともと存在するシステムコール"getpid"も同時に行い、また子プロセスでも同じことを行うプログラムによってサンドボックスの動作を確認した。
 確認していないが子プロセス以下も大丈夫そう。
 
-'''
-
+'''c
 $ ./return_constant
 return 1
 $ ./sandbox ./return_constant
 return -1
 $ ./fork_and_neogetpid
-
 '''
 
 
