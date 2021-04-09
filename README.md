@@ -16,6 +16,7 @@ return 1
 return -1
 [-@localhost ~]$ ./fork_and_neogetpid
 """
+
 """
 neo pid number = 2457, pid number = 2457
 neo pid number = 2458, pid number = 2458
@@ -43,7 +44,7 @@ __visible noinstr void do_syscall_64(unsigned long nr, struct pt_regs *regs)
         if (likely(nr < NR_syscalls)) {
                 nr = array_index_nospec(nr, NR_syscalls);
 
-                **if(!is_in_proc(task_tgid_vnr(current)) ||  !is_in_syscall(nr)){**
+                ** if(!is_in_proc(task_tgid_vnr(current)) ||  !is_in_syscall(nr)){ **
                         regs->ax = sys_call_table[nr](regs);
                 }
 #ifdef CONFIG_X86_X32_ABI
