@@ -86,8 +86,9 @@ struct simple_proc_struct{
 今回の場合、list_head型のrootノード:simple_proc_struct_head(以下head)をsandbox.hで静的に宣言し、他プログラムでheadに追加・削除・参照
 した。
 
-# 問題点
+# 問題点・疑問点
 - どのファイルまでアクセスを許可するか指定する機能は未実装
 - 名前空間の異なるプロセスへの対応
+- おそらくexit.c とfork.cをいじったせいで、動作が重くなった
+- task_struct構造体であるcurrentの実装はどうなっているのか
 - 
-
