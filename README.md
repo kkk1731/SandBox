@@ -9,21 +9,21 @@ CentOS Linux release 8.3.2011
 なおpidを返すもの(下)については、もともと存在するシステムコール"getpid"も同時に行い、また子プロセスでも同じことを行うプログラムによってサンドボックスの動作を確認した。
 確認していないが子プロセス以下も大丈夫そう。
 
-'''
-        [-@localhost ~]$ ./return_constant
-        return 1
-        [-@localhost ~]$ ./sandbox ./return_constant
-        return -1
-        [-@localhost ~]$ ./fork_and_neogetpid
-'''
+"""
+$ ./return_constant
+return 1
+$ ./sandbox ./return_constant
+return -1
+$ ./fork_and_neogetpid
+"""
 
 '''
 neo pid number = 2457, pid number = 2457
 neo pid number = 2458, pid number = 2458
-[-@localhost ~]$ ./sandbox ./fork_and_neogetpid
+$ ./sandbox ./fork_and_neogetpid
 neo pid number = -1, pid number = 2476
 neo pid number = -1, pid number = 2477
-[-@localhost ~]$ 
+$ 
 '''
 
 ## サンドボックスの実装
