@@ -14,10 +14,10 @@ $ ./return_constant
 return 1
 $ ./sandbox ./return_constant
 return -1
-$ ./fork_and_neogetpid
 ```
 
 ```
+$ ./fork_and_neogetpid
 neo pid number = 2457, pid number = 2457
 neo pid number = 2458, pid number = 2458
 $ ./sandbox ./fork_and_neogetpid
