@@ -71,7 +71,7 @@ kernel/exit.c と kernel/fork.cに変更を加えることで対応した。
 
 なお簡易プロセス制御ブロックは次のように定義した。
 
-```
+```c
 struct simple_proc_struct{
         pid_t pid;
         struct list_head proc_list;
