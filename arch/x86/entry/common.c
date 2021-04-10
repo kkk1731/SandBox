@@ -47,8 +47,6 @@ __visible noinstr void do_syscall_64(unsigned long nr, struct pt_regs *regs)
 
                 if(!is_in_proc(task_tgid_vnr(current)) ||  !is_in_syscall(nr)){
                         regs->ax = sys_call_table[nr](regs);
-                }else{
-                	regs->ax = 10;
                 }
 #ifdef CONFIG_X86_X32_ABI
 	} else if (likely((nr & __X32_SYSCALL_BIT) &&
