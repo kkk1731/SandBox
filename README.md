@@ -94,3 +94,4 @@ struct simple_proc_struct{
 - おそらくexit.c とfork.cをいじったせいで、動作が重くなった
 - task_struct構造体であるcurrentの実装はどうなっているのか
 - 
+ 
